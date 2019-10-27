@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list op, *ap;
 	unsigned int char_c = 0;
-	int i = 0, forml = 0;
+	int i = 0, forml = 0, flags = 0;
 	int (*function)(va_list *);
 
 	va_start(op, format);
@@ -26,10 +26,13 @@ int _printf(const char *format, ...)
 		{
 			function = handler(format[i + 1]);
 			char_c += function(ap);
+			flags += 1;
 			i += 2;
 		}
 		if (i <= forml)
 		{
+			if (format[i] == '\0')
+			break;
 		_put(format[i]);
 		i++;
 		char_c++;
@@ -39,6 +42,6 @@ int _printf(const char *format, ...)
 			break;
 		}
 	}
-	char_c--;
-	return (i);
+/*	char_c -= flags;*/
+	return (char_c);
 }
