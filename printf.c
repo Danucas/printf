@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 		{
 			function = handler(format[i + 1]);
 			char_c += function(ap);
-			i+=2;
+			i += 2;
 		}
 		if (i <= forml)
 		{
@@ -40,7 +40,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	char_c--;
-	_put('\n');
-	printf ("char %d\n", char_c);
 	return (i);
 }

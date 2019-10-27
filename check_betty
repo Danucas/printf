@@ -1,0 +1,7 @@
+#!/bin/bash
+ls *.c |
+while read file
+do
+    echo -e "\e[35mChecking ${file}\e[0m"
+    betty $file
+done
