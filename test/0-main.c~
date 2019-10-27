@@ -1,0 +1,7 @@
+#include "holberton.h"
+
+int main(void)
+{
+	_printf("Hola mundo %c %s %c %c %c %c %c %c %c %c %s %c hola", 66, "kc", 68, 69, 70, 71, 72, 73, 74, 75, "text");
+	return (0);
+}

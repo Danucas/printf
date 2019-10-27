@@ -1,0 +1,18 @@
+#include "holberton.h"
+#include <stdarg.h>
+#include <stdio.h>
+
+
+int print_char(va_list *list)
+{
+	int k;
+	printf ("printing char\n");
+	if (list == NULL)
+	{
+		printf ("char is null\n");
+		return (0);
+	}
+	k =va_arg(*list, int);
+	printf ("%d\n", k);
+	return (0);
+}
