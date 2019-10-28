@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 
 	va_start(op, format);
 	ap = &op;
+	if (!format || (format[1] == '\0' && format[0] == '%'))
+		return (-1);
 	while (format[forml] != '\0')
 	{
 		forml++;
@@ -41,9 +43,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
 			break;
-		}
 	}
 	return (char_c);
 }
