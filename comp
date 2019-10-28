@@ -1,3 +1,4 @@
 #!/bin/bash
 echo -e "\e[35mCompilando\e[0m\n"
 gca -Wno-format *.c -o l
+cp main.c test/main.c
