@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list op, *ap;
 	unsigned int char_c = 0;
-	int i = 0, forml = 0, flags = 0, (*function)(va_list *);
+	int i = 0, flags = 0, (*function)(va_list *);
 
 	va_start(op, format);
 	ap = &op;
