@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include "holberton.h"
 #include <stdio.h>
+int checklist(va_list *ap, const char *format);
 /**
  *_printf - the printf
  *@format: fsfsaoj
@@ -9,14 +10,16 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list op, *ap;
+	va_list op, *ap, te;
 	unsigned int char_c = 0;
-	int i = 0, flags = 0, (*function)(va_list *);
+	int i = 0, (*function)(va_list *);
 
 	va_start(op, format);
-	ap = &op;
+	va_copy(te, op);
 	if (!format || (format[1] == '\0' && format[0] == '%'))
 		return (-1);
+	ap = &op;
+	checklist(&te, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -24,14 +27,13 @@ int _printf(const char *format, ...)
 			function = handler(format[i + 1]);
 			if (function == NULL)
 			{
-				_put('%');
-			char_c++;
+			        _put('%');
+				char_c++;
 				i += 2;
 			}
 			else
 			{
 			char_c += function(ap);
-			flags += 1;
 			i += 2;
 			}
 		}
@@ -46,4 +48,22 @@ int _printf(const char *format, ...)
 	}
 	va_end(op);
 	return (char_c);
+}
+int checklist(va_list *ap, const char *format)
+{
+	int (*f)(va_list *);
+	int c;
+	int i;
+	for(i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] == '%')
+		{
+			f = handler(format[i + 1]);
+			if (f != NULL)
+			{
+				c = f(ap);
+			}
+		}
+	}
+	return (c);
 }
