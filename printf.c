@@ -31,7 +31,14 @@ int _printf(const char *format, ...)
 			{
 				_put('%');
 				char_c++;
-				i += 2;
+				if (format[i + 2] != '\0')
+				{
+					i += 2;
+				}
+				else
+				{
+					i += 1;
+				}
 			}
 			else
 			{
