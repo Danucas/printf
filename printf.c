@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			function = handler(format[i + 1]);
 			if (function == NULL)
 			{
-			        _put('%');
+				_put('%');
 				char_c++;
 				i += 2;
 			}
@@ -49,12 +49,19 @@ int _printf(const char *format, ...)
 	va_end(op);
 	return (char_c);
 }
+/**
+ *checklist - the printf
+ *@ap: fsfsaoj
+ *@format: fdsf
+ *Return: characters printed
+ */
 int checklist(va_list *ap, const char *format)
 {
 	int (*f)(va_list *);
 	int c;
 	int i;
-	for(i = 0; format[i] != '\0'; i++)
+
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
