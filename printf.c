@@ -31,15 +31,14 @@ int _printf(const char *format, ...)
 			if (function != NULL)
 			{
 				char_c += function(ap, ver);
-				i+=1;
+				i += 1;
 
 			}
 			else
 			{
 				_put('%');
 				char_c++;
-				i+=1;
-			}
+				}
 		}
 		if (format[i] == '\0')
 			break;

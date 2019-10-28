@@ -9,6 +9,7 @@ int print_char(va_list *, int);
 int print_string(va_list *, int);
 int print_decimal(va_list *, int);
 int print_percent(va_list *, int);
+int print(va_list *, int);
 int (*handler(char c))(va_list *, int);
 char *_tostring(int n);
 /**

@@ -11,7 +11,7 @@ int (*handler(char c))(va_list *, int)
 	int i = 0;
 	print_t *funs = get_funs();
 
-	while (i < 5)
+	while (i < 11)
 	{
 		if (funs[i].joker == c)
 		{

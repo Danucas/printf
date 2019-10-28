@@ -11,7 +11,13 @@ print_t *get_funs()
 		{'s', print_string},
 		{'d', print_decimal},
 		{'i', print_decimal},
-		{'%', print_percent}
+		{'%', print_percent},
+		{'f', print},
+		{'g', print},
+		{'o', print},
+		{'g', print},
+		{'x', print},
+		{'e', print}
 	};
 	print_t *funs = ps;
 
