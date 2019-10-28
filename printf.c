@@ -45,5 +45,6 @@ int _printf(const char *format, ...)
 		else
 			break;
 	}
+	va_end(op);
 	return (char_c);
 }
