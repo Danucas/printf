@@ -12,14 +12,16 @@ int _printf(const char *format, ...)
 {
 	va_list op, *ap, te;
 	unsigned int char_c = 0;
-	int i = 0, (*function)(va_list *);
+	int i = 0, (*function)(va_list *, int), ver = 0;
 
 	va_start(op, format);
 	va_copy(te, op);
 	if (!format || (format[1] == '\0' && format[0] == '%'))
 		return (-1);
 	ap = &op;
+	ver = 1;
 	checklist(&te, format);
+	ver = 0;
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -33,7 +35,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-			char_c += function(ap);
+				char_c += function(ap, ver);
 			i += 2;
 			}
 		}
@@ -57,7 +59,7 @@ int _printf(const char *format, ...)
  */
 int checklist(va_list *ap, const char *format)
 {
-	int (*f)(va_list *);
+	int (*f)(va_list *, int);
 	int c;
 	int i;
 
@@ -68,7 +70,7 @@ int checklist(va_list *ap, const char *format)
 			f = handler(format[i + 1]);
 			if (f != NULL)
 			{
-				c = f(ap);
+				c = f(ap, 1);
 			}
 		}
 	}

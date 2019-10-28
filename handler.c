@@ -6,7 +6,7 @@
  *@c: the char
  *Return:  function to the correct action
  */
-int (*handler(char c))(va_list *)
+int (*handler(char c))(va_list *, int)
 {
 	int i = 0;
 	print_t *funs = get_funs();

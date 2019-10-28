@@ -5,11 +5,11 @@
 int _printf(const char *format, ...);
 int _put(char c);
 
-int print_char(va_list *);
-int print_string(va_list *);
-int print_decimal(va_list *);
-int print_percent(va_list *);
-int (*handler(char c))(va_list *);
+int print_char(va_list *, int);
+int print_string(va_list *, int);
+int print_decimal(va_list *, int);
+int print_percent(va_list *, int);
+int (*handler(char c))(va_list *, int);
 char *_tostring(int n);
 /**
 *struct printers - printer functions
@@ -21,7 +21,7 @@ char *_tostring(int n);
 typedef struct printers
 {
 	char joker;
-	int (*fun)(va_list *);
+	int (*fun)(va_list *, int);
 } print_t;
 print_t *get_funs();
 
