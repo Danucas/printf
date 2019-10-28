@@ -9,6 +9,7 @@ print_t *get_funs()
 	print_t ps[] = {
 		{'c', print_char},
 		{'s', print_string},
+		{'%', print_percent},
 		{'d', print_decimal},
 		{'i', print_decimal}
 	};

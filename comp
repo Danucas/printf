@@ -1,3 +1,3 @@
 #!/bin/bash
 echo -e "\e[35mCompilando\e[0m\n"
-gca *.c -o l
+gca -Wno-format *.c -o l
