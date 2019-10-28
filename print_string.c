@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdarg.h>
-#include <stdio.h>
 #include <unistd.h>
 /**
  *print_string - print strings

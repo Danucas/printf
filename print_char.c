@@ -10,9 +10,9 @@
 
 int print_char(va_list *list)
 {
-	int k;
+	unsigned char k;
 
-	k = va_arg(*list, int);
+	k = (unsigned char) va_arg(*list, int);
 	_put(k);
 	return (1);
 }

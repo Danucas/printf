@@ -17,25 +17,25 @@ int _printf(const char *format, ...)
 	ap = &op;
 	if (!format || (format[1] == '\0' && format[0] == '%'))
 		return (-1);
-	while (format[forml] != '\0')
-		forml++;
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			function = handler(format[i + 1]);
 			if (function == NULL)
-				i++;
+			{
+				_put('%');
+			char_c++;
+				i += 2;
+			}
 			else
 			{
 			char_c += function(ap);
 			flags += 1;
 			i += 2;
 			}
-			}
-		if (i < forml)
-		{
-			if (format[i] == '\0')
+		}
+		if (format[i] == '\0')
 			break;
 			if (format[i] != '%')
 			{
@@ -43,9 +43,6 @@ int _printf(const char *format, ...)
 				i++;
 				char_c++;
 			}
-		}
-		else
-			break;
 	}
 	va_end(op);
 	return (char_c);
