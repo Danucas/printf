@@ -33,15 +33,17 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] == '\0')
 			break;
-		_put(format[i]);
-		i++;
-		char_c++;
+			if (format[i] != '%')
+			{
+				_put(format[i]);
+				i++;
+				char_c++;
+			}
 		}
 		else
 		{
 			break;
 		}
 	}
-/*	char_c -= flags;*/
 	return (char_c);
 }
