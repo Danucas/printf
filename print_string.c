@@ -15,7 +15,7 @@ int print_string(va_list *list)
 
 	if (s == NULL)
 	{
-		_put(*(s));
+		write(1, "(nil)", 5);
 	}
 	while (*(s + count) != '\0')
 	{
