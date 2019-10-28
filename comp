@@ -2,3 +2,4 @@
 echo -e "\e[35mCompilando\e[0m\n"
 gca -Wno-format *.c -o l
 cp main.c test/main.c
+cp 1-main.c test/1-main.c
