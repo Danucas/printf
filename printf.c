@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			i += 2;
 			}
 			}
-		if (i <= forml)
+		if (i < forml)
 		{
 			if (format[i] == '\0')
 			break;
