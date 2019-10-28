@@ -9,6 +9,7 @@
 
 int print_percent(va_list *list)
 {
+	(void) list;
 	_put('%');
 	return (1);
 }
