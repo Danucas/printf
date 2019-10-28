@@ -26,34 +26,29 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			function = handler(format[i + 1]);
-			if (function == NULL)
+			i++;
+			function = handler(format[i]);
+			if (function != NULL)
 			{
-				_put('%');
-				char_c++;
-				if (format[i + 2] != '\0')
-				{
-					i += 2;
-				}
-				else
-				{
-					i += 1;
-				}
+				char_c += function(ap, ver);
+				i+=1;
+
 			}
 			else
 			{
-				char_c += function(ap, ver);
-			i += 2;
+				_put('%');
+				char_c++;
+				i+=1;
 			}
 		}
 		if (format[i] == '\0')
 			break;
-			if (format[i] != '%')
-			{
-				_put(format[i]);
-				i++;
-				char_c++;
-			}
+		if (format[i] != '%')
+		{
+		_put(format[i]);
+		char_c++;
+		i++;
+		}
 	}
 	va_end(op);
 	return (char_c);
