@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  *print_decimal - print strings
@@ -11,16 +12,16 @@
 
 int print_decimal(va_list *list, int ver)
 {
-	int s  = va_arg(*list, int);
+	int s  = va_arg(*list, int), i = 0;
 	char *r = _tostring(s);
 
-	s = 0;
-	while (*(r) != '\0')
+	i = 0;
+	while (*(r + i) != '\0')
 	{
 		if (ver == 0)
-		_put(*r);
-		r++;
-		s++;
+			_put(*(r + i));
+		i++;
 	}
+	free(r);
 	return (s);
 }
