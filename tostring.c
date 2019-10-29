@@ -1,13 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 char *_tostring(int n)
 {
-	int factor = 1, i, j, res = n;
+	int factor = 1, i, j, res = n, tosum = 0;
 	char *ch, sign;
 
+
 	if (n < 0)
-		res *= -1;
+	{
+		if (n <= INT_MIN)
+			res -= 1;
+		else
+			res *= -1;
+	}
 	res /= 10;
 	for(i = 1; res > 0; i++)
 	{
@@ -16,6 +23,15 @@ char *_tostring(int n)
 	}
 	if (n < 0)
 	{
+		if (n <= INT_MIN)
+		{
+			n = (n + 1) * -1;
+			tosum = 1;
+		}
+		else
+		{
+			n *= -1;
+		}
 		sign = '-';
 		i++;
 		j = 1;
@@ -27,10 +43,9 @@ char *_tostring(int n)
 	ch = malloc((i + 1) * sizeof(char));
 	if (ch == NULL)
 		return (NULL);
-	if (n < 0)
+	if (sign == '-')
 	{
 		ch[0] = sign;
-		n *= -1;
 	}
 	for( j = j; j <= i; j++)
 	{
@@ -57,6 +72,8 @@ char *_tostring(int n)
 		{
 			ch[j] =  '0' + res;
 		}
+		if (j == i - 1 && tosum != 0)
+			ch[j] = '0'+ (res + tosum);
 	}
 	ch[i] = '\0';
 

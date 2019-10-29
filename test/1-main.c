@@ -22,6 +22,8 @@ printf("Negative:[%d]\n", -762534);
 
 _printf("%d\n", 0);
    printf("%d\n", 0);
+   _printf("%d\n", -1);
+   printf("%d\n", -1);
    printf("%d %d\n", len, len2);
    return (0);
 
