@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "holberton.h"
+
 /**
  *get_int_length - print strings
- *@res: the list
  *@factor: the list
  *@sign: the list
  *@n: the list
@@ -12,22 +13,31 @@
  *Return: char count
  */
 
-char *get_int_length(int *res, int *factor, char *sign, int *n, int *j, int *k)
+char *get_int_length(int *factor, char *sign, int *n, int *j, int *k)
 {
 	char *ch;
 	int i = *k;
+	unsigned int r;
 
 	if (*n < 0)
-		*res *= -1;
-	*res /= 10;
-	for (i = 1; *res > 0; i++)
+	{
+		*n = *n * (-1);
+		*sign = '-';
+
+
+	}
+	r = (unsigned int) n;
+
+	r /= 10;
+
+	for (i = 1; r > 0; i++)
 	{
 		*factor *= 10;
-		*res /= 10;
+		r /= 10;
 	}
+
 	if (*n < 0)
 	{
-		*sign = '-';
 		i++;
 		*j = 1;
 	}
@@ -41,7 +51,54 @@ char *get_int_length(int *res, int *factor, char *sign, int *n, int *j, int *k)
 	if (*n < 0)
 	{
 		ch[0] = *sign;
+
+	}
+	*k = i;
+	return (ch);
+}
+/**
+ *get_uint_length - print strings
+ *@factor: the list
+ *@sign: the list
+ *@n: the list
+ *@j: counter
+ *@k: int length
+ *Return: char count
+ */
+
+char *get_uint_length(int *factor, char *sign, int *n, int *j, int *k)
+{
+
+	char *ch;
+	int i = *k;
+	int r;
+
+	if (*n < 0)
+	{
 		*n *= -1;
+		*sign = '-';
+		i++;
+		*j = 1;
+	}
+	else
+	{
+		*j = 0;
+	}
+	r = (unsigned int) *n;
+	r /= 10;
+
+	for (i = i; r > 0; i++)
+	{
+		*factor *= 10;
+		r /= 10;
+	}
+	ch = malloc((i + 1) * sizeof(char));
+	if (ch == NULL)
+		return (NULL);
+	if (*sign == '-')
+	{
+		ch[0] = *sign;
+		i++;
 	}
 	*k = i;
 	return (ch);
@@ -54,40 +111,43 @@ char *get_int_length(int *res, int *factor, char *sign, int *n, int *j, int *k)
 
 char *_tostring(int n)
 {
-	int factor = 1, i, j, res = n;
-	char *ch;
-	char sign;
+	int factor = 1, i = 0, j;
+	unsigned int res, u, fac;
+	char *ch, sign = '\0';
 
-	ch = get_int_length(&res, &factor, &sign, &n, &j, &i);
-
-
+	if (((unsigned int) n) >= UINT_MAX)
+		ch = get_uint_length(&factor, &sign, &n, &j, &i);
+	else
+		ch = get_int_length(&factor, &sign, &n, &j, &i);
+	u = (unsigned int) n;
+	res = u;
+	fac = (unsigned int) factor;
 	for (j = j; j <= i; j++)
 	{
-		if (n > 9)
+		if (u > 9)
 		{
-			res = n / 10;
-			n = n % factor;
-			while (res > 9)
+			res = u / 10;
+			while (res > 10)
 				res /= 10;
+			u = u % fac;
 		}
 		else
 		{
-			res = n;
+			res = u;
 		}
-		factor /= 10;
-		if (n < factor)
+		fac /= 10;
+		if (u < fac)
 		{
 			ch[j] = '0' + res;
 			ch[j + 1] = '0';
-			factor /= 10;
+			fac /= 10;
 			j++;
 		}
 		else
-		{
 			ch[j] =  '0' + res;
-		}
 	}
 	ch[i] = '\0';
-
+	if (n == 0)
+		return ("0");
 	return (ch);
 }
