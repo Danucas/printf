@@ -1,0 +1,66 @@
+.TH _printf
+.SH NAME
+_printf \- format and print data
+.SH SYNOPSIS
+#include "holberton.h"
+
+int _printf(const char *format, ...);
+int _put(char c);
+
+int print_char(va_list *, int);
+int print_string(va_list *, int);
+int print_decimal(va_list *, int);
+int print_percent(va_list *, int);
+int print(va_list *, int);
+int (*handler(char c))(va_list *, int);
+char *_tostring(int n);
+
+Feature Test Macro Requirements
+
+typedef struct printers
+{
+	char joker;
+	int (*fun)(va_list *, int);
+} print_t;
+print_t *get_funs();
+
+.SH DESCRIPTION
+       The functions choosen by the handler write the output under the control
+       of a format string that specifies how subsequent arguments (or arguments
+       accessed via the variable-length argument facilities of stdarg(3)) are
+       converted for output.
+
+Flag Characters
+The character % is followed by zero or more of the following flags:
+
+c   the function go to check the arguments that has been casted to integers
+    gets the value
+
+s   asdf
+
+d   asd
+
+i   asd
+
+%   asd
+
+f   asd
+
+g   asd
+
+o   asd
+
+x   asd
+
+e   asd
+
+.SH RETURN VALUE
+
+.SH EXAMPLES
+
+.SH SEE ALSO
+
+    printf(1), asprintf(3), puts(3), scanf(3), setlocale(3), strfromd(3),
+    wcrtomb(3), wprintf(3), locale(5)
+
+.SH COLOPHON
