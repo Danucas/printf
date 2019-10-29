@@ -15,6 +15,10 @@ _printf("%d\n", INT_MAX);
 printf("%d\n", INT_MAX);
 _printf("%d\n", UINT_MAX);
 printf("%d\n", UINT_MAX);
+_printf("Length:[%d, %i]\n", len, len);
+printf("Length:[%d, %i]\n", len2, len2);
+_printf("Negative:[%d]\n", -762534);
+printf("Negative:[%d]\n", -762534);
 
 _printf("%d\n", 0);
    printf("%d\n", 0);
