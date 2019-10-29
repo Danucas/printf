@@ -26,7 +26,7 @@ char *get_int_length(int *factor, char *sign, int *n, int *j, int *k)
 
 
 	}
-	r = (unsigned int) n;
+	r = (unsigned int) *n;
 
 	r /= 10;
 
