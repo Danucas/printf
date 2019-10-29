@@ -24,11 +24,6 @@ typedef struct printers
 	char joker;
 	int (*fun)(va_list *, int);
 } print_t;
-typedef struct verif
-{
-	int state;
-	int count;
-} ver_t;
 print_t *get_funs();
 
 #endif  /* HOL_PRINTF */

@@ -5,3 +5,4 @@ do
     echo -e "\e[35mChecking ${file}\e[0m"
     betty $file
 done
+betty holberton.h
