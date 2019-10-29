@@ -23,5 +23,5 @@ int print_decimal(va_list *list, int ver)
 		i++;
 	}
 	free(r);
-	return (s);
+	return (i);
 }
