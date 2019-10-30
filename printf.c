@@ -5,8 +5,9 @@
 #include <stdlib.h>
 int checklist(va_list *ap, const char *format);
 /**
- *_printf - the printf
- *@format: fsfsaoj
+ *_printf - the printf, handled data formats prints as characters and
+ *return the character count
+ *@format: format string
  *Return: characters printed
  */
 int _printf(const char *format, ...)
@@ -52,10 +53,10 @@ int _printf(const char *format, ...)
 	return (char_c);
 }
 /**
- *checklist - the printf
- *@ap: fsfsaoj
- *@format: fdsf
- *Return: characters printed
+ *checklist - validation to avoid any segmentation fault
+ *@ap: the list to check
+ *@format: the format string
+ *Return: verification code
  */
 int checklist(va_list *ap, const char *format)
 {

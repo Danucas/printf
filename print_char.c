@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 /**
- *print_char - print strings
- *@list: the list
- *@ver:fds
+ *print_char - print characters
+ *@list: the  argument list
+ *@ver: verification state
  *Return: char count
  */
 

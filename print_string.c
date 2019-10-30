@@ -4,8 +4,8 @@
 /**
  *print_string - print strings
  *@list: the list
- *@ver: fdsf
- *Return: char count
+ *@ver: verification state
+ *Return: char count prints (null) if NULL
  */
 
 int print_string(va_list *list, int ver)

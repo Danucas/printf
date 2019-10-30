@@ -4,9 +4,9 @@
 #include <stdlib.h>
 
 /**
- *print_decimal - print strings
+ *print_decimal - deciman numbers
  *@list: the list
- *@ver: fdfs
+ *@ver: verification state
  *Return: char count
  */
 
