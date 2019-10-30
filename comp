@@ -2,6 +2,6 @@
 echo -e "\e[35mCompiling\e[0m\n"
 gca -Wno-format *.c -o l
 echo -e "\e[35mCopying main to test\e[0m"
-
 cp main.c test/main.c
 cp 1-main.c test/1-main.c
+echo -e "Compilation done"
